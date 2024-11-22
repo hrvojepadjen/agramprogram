@@ -1,0 +1,92 @@
+[
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Koncert"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Festival"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Izložba"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Predstava"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Manifestacija"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Kino"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Panel"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Radionica"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Razno"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Balet"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Opera"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Predstavljanje"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Skup"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Predavanje"
+        }
+    },
+    {
+        "model": "events.eventtype",
+        "fields": {
+            "name": "Performans"
+        }
+    }
+]
