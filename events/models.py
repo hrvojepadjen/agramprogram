@@ -1,5 +1,9 @@
+# django imports
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
+# local imports
+from organizers.models import Organizer
 
 
 class EventType(models.Model):
@@ -51,6 +55,107 @@ class AgeGroup(models.Model):
     class Meta:
         verbose_name = _("Age Group")
         verbose_name_plural = _("Age Groups")
+
+    def __str__(self):
+        return self.name
+
+
+class Event(models.Model):
+    """
+    Represents an event, including details like type, category, location, and target age groups.
+    """
+    name = models.CharField(
+        max_length=255,
+        verbose_name=_("Event Name"),
+        help_text=_("The name of the event.")
+    )
+    description = models.TextField(
+        verbose_name=_("Description"),
+        help_text=_("A detailed description of the event.")
+    )
+    description_en = models.TextField(
+        null=True,
+        blank=True,
+        verbose_name=_("Description (English)"),
+        help_text=_("A detailed description of the event in English.")
+    )
+    event_type = models.ForeignKey(
+        EventType,
+        on_delete=models.SET_NULL,
+        null=True,
+        verbose_name=_("Event Type"),
+        help_text=_("The type of the event (e.g., Workshop, Play, Concert).")
+    )
+    categories = models.ManyToManyField(
+        Category,
+        verbose_name=_("Categories"),
+        help_text=_("The categories this event belongs to (e.g., Music, Art).")
+    )
+    organizer = models.ForeignKey(
+        Organizer,
+        on_delete=models.CASCADE,
+        verbose_name=_("Organizer"),
+        help_text=_("The organizer responsible for this event.")
+    )
+    location = models.CharField(
+        max_length=255,
+        verbose_name=_("Location"),
+        help_text=_("The location where the event will be held.")
+    )
+    start_datetime = models.DateTimeField(
+        verbose_name=_("Start Date & Time"),
+        help_text=_("The starting date and time of the event.")
+    )
+    end_datetime = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name=_("End Date & Time"),
+        help_text=_("The ending date and time of the event.")
+    )
+    target_age_groups = models.ManyToManyField(
+        AgeGroup,
+        verbose_name=_("Target Age Groups"),
+        help_text=_("The age groups targeted by this event (e.g., Children, Adults).")
+    )
+    price = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        null=True,
+        blank=True,
+        verbose_name=_("Price"),
+        help_text=_("The price of admission (optional).")
+    )
+    tickets_available = models.PositiveIntegerField(
+        null=True,
+        blank=True,
+        verbose_name=_("Tickets Available"),
+        help_text=_("The number of tickets available for the event.")
+    )
+    registration_required = models.BooleanField(
+        default=False,
+        verbose_name=_("Registration Required"),
+        help_text=_("Indicates whether registration is required.")
+    )
+    registration_deadline = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name=_("Registration Deadline"),
+        help_text=_("The deadline for registering for the event (optional).")
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name=_("Created At"),
+        help_text=_("The timestamp when the event was created.")
+    )
+    updated_at = models.DateTimeField(
+        auto_now=True,
+        verbose_name=_("Updated At"),
+        help_text=_("The timestamp when the event was last updated.")
+    )
+
+    class Meta:
+        verbose_name = _("Event")
+        verbose_name_plural = _("Events")
 
     def __str__(self):
         return self.name
