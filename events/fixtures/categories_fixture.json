@@ -1,0 +1,62 @@
+[
+    {
+        "model": "events.category",
+        "fields": {
+            "name": "Glazba"
+        }
+    },
+    {
+        "model": "events.category",
+        "fields": {
+            "name": "Film"
+        }
+    },
+    {
+        "model": "events.category",
+        "fields": {
+            "name": "Kazalište"
+        }
+    },
+    {
+        "model": "events.category",
+        "fields": {
+            "name": "Muzeji"
+        }
+    },
+    {
+        "model": "events.category",
+        "fields": {
+            "name": "Ples"
+        }
+    },
+    {
+        "model": "events.category",
+        "fields": {
+            "name": "Likovna umjetnost"
+        }
+    },
+    {
+        "model": "events.category",
+        "fields": {
+            "name": "Razno"
+        }
+    },
+    {
+        "model": "events.category",
+        "fields": {
+            "name": "Književnost"
+        }
+    },
+    {
+        "model": "events.category",
+        "fields": {
+            "name": "Interdisciplinarni program"
+        }
+    },
+    {
+        "model": "events.category",
+        "fields": {
+            "name": "Diskurzivni program"
+        }
+    }
+]
