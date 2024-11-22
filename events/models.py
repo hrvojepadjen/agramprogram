@@ -36,3 +36,21 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class AgeGroup(models.Model):
+    """
+    Represents an age group category for events (e.g., Children, Adults, All Ages).
+    """
+    name = models.CharField(
+        max_length=255,
+        verbose_name=_("Age Group Name"),
+        help_text=_("The name of the age group.")
+    )
+
+    class Meta:
+        verbose_name = _("Age Group")
+        verbose_name_plural = _("Age Groups")
+
+    def __str__(self):
+        return self.name
