@@ -34,9 +34,20 @@
             </div>
         </nav>
 
-        <!-- Main -->
+        <!-- Main Section -->
         <div class="container py-5">
             <h1 class="text-center">{% trans "Our Events" %}</h1>
+            <!-- Search Form -->
+            <form method="get" action="" class="d-flex justify-content-center mb-4">
+                <input
+                    type="text"
+                    name="q"
+                    class="form-control w-50"
+                    placeholder="{% trans 'Search events...' %}"
+                    value="{{ query|default:'' }}"
+                >
+                <button type="submit" class="btn btn-primary ms-2">{% trans 'Search' %}</button>
+            </form>
             <div class="row mt-4">
                 {% for event in events %}
                 <div class="col-md-4 mb-4">
@@ -53,6 +64,10 @@
                             </small>
                         </div>
                     </div>
+                </div>
+                {% empty %}
+                <div class="col-12">
+                    <p class="text-center">{% trans 'No events found.' %}</p>
                 </div>
                 {% endfor %}
             </div>
