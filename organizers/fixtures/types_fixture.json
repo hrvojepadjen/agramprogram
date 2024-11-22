@@ -1,0 +1,20 @@
+[
+    {
+        "model": "organizers.organizertype",
+        "fields": {
+            "name": "Gradska ustanova"
+        }
+    },
+    {
+        "model": "organizers.organizertype",
+        "fields": {
+            "name": "Korisnik koji koristi prostorije gradskih ustanova"
+        }
+    },
+    {
+        "model": "organizers.organizertype",
+        "fields": {
+            "name": "Drugo"
+        }
+    }
+]
