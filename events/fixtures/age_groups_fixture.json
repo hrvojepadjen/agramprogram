@@ -1,0 +1,20 @@
+[
+    {
+        "model": "events.agegroup",
+        "fields": {
+            "name": "djeca (0-15)"
+        }
+    },
+    {
+        "model": "events.agegroup",
+        "fields": {
+            "name": "mladi (16-29)"
+        }
+    },
+    {
+        "model": "events.agegroup",
+        "fields": {
+            "name": "odrasli (30+)"
+        }
+    }
+]
