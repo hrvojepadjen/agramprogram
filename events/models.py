@@ -18,3 +18,21 @@ class EventType(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Category(models.Model):
+    """
+    Represents a category to classify events (e.g., Music, Art, Sports).
+    """
+    name = models.CharField(
+        max_length=255,
+        verbose_name=_("Category Name"),
+        help_text=_("The name of the category.")
+    )
+
+    class Meta:
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
+
+    def __str__(self):
+        return self.name
