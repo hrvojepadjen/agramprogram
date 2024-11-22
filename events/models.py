@@ -64,8 +64,7 @@ class Event(models.Model):
     """
     Represents an event, including details like type, category, location, and target age groups.
     """
-    name = models.CharField(
-        max_length=255,
+    name = models.TextField(
         verbose_name=_("Event Name"),
         help_text=_("The name of the event.")
     )
@@ -97,8 +96,9 @@ class Event(models.Model):
         verbose_name=_("Organizer"),
         help_text=_("The organizer responsible for this event.")
     )
-    location = models.CharField(
-        max_length=255,
+    location = models.TextField(
+        null=True,
+        blank=True,
         verbose_name=_("Location"),
         help_text=_("The location where the event will be held.")
     )
