@@ -17,6 +17,24 @@ class OrganizerType(models.Model):
         return self.name
 
 
+class CityDistrict(models.Model):
+    """
+    Represents a district within a city, which can be associated with events.
+    """
+    name = models.CharField(
+        max_length=255,
+        verbose_name=_("District Name"),
+        help_text=_("The name of the city district.")
+    )
+
+    class Meta:
+        verbose_name = _("City District")
+        verbose_name_plural = _("City Districts")
+
+    def __str__(self):
+        return f"{self.name}"
+
+
 class Organizer(models.Model):
     name = models.CharField(
         max_length=255,
@@ -82,6 +100,14 @@ class Organizer(models.Model):
         verbose_name=_("Associated User"),
         help_text=_("The user associated with this organizer.")
     )
+    city_district = models.ForeignKey(
+        CityDistrict,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        verbose_name=_("City District"),
+        help_text=_("The district where the event is taking place.")
+    )
 
     class Meta:
         verbose_name = _("Organizer")
@@ -89,21 +115,3 @@ class Organizer(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class CityDistrict(models.Model):
-    """
-    Represents a district within a city, which can be associated with events.
-    """
-    name = models.CharField(
-        max_length=255,
-        verbose_name=_("District Name"),
-        help_text=_("The name of the city district.")
-    )
-
-    class Meta:
-        verbose_name = _("City District")
-        verbose_name_plural = _("City Districts")
-
-    def __str__(self):
-        return f"{self.name}"
