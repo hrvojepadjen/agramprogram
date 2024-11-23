@@ -14,12 +14,14 @@ class EventTypeViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = EventType.objects.all()
     serializer_class = EventTypeSerializer
 
+
 class CategoryViewSet(viewsets.ReadOnlyModelViewSet):
     """
     Read-only API endpoint for Category.
     """
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
 
 class AgeGroupViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -28,6 +30,7 @@ class AgeGroupViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = AgeGroup.objects.all()
     serializer_class = AgeGroupSerializer
 
+
 class EventViewSet(viewsets.ReadOnlyModelViewSet):
     """
     Read-only API endpoint for Event.
@@ -35,4 +38,12 @@ class EventViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['name', 'description']  # Specify searchable fields
+    search_fields = [
+        'name',
+        'description',
+        'description_en',
+        'city_district__name',
+        'organizer__name',
+        'event_type__name',
+        'categories__name',
+    ]
