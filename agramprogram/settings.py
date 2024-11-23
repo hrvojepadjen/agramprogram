@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     # local
     'events',
     'organizers',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
