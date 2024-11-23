@@ -30,7 +30,8 @@ class EventAdmin(admin.ModelAdmin):
         "location",
         "start_datetime",
         "end_datetime",
-        "price"
+        "price",
+        "featured",
     )
     list_filter = (
         "event_type",
