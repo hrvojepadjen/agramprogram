@@ -49,11 +49,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # 3rd party
+    'taggit',
+    'django_filters',
+    'rest_framework',
+
     # local
     'events',
     'organizers',
-    'django_filters',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +149,6 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+# taggit settings
+TAGGIT_CASE_INSENSITIVE = True
