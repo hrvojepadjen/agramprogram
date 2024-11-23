@@ -104,6 +104,7 @@ class Event(models.Model):
     organizer = models.ForeignKey(
         Organizer,
         on_delete=models.CASCADE,
+        related_name="events",
         verbose_name=_("Organizer"),
         help_text=_("The organizer responsible for this event.")
     )
