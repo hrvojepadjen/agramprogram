@@ -89,3 +89,21 @@ class Organizer(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class CityDistrict(models.Model):
+    """
+    Represents a district within a city, which can be associated with events.
+    """
+    name = models.CharField(
+        max_length=255,
+        verbose_name=_("District Name"),
+        help_text=_("The name of the city district.")
+    )
+
+    class Meta:
+        verbose_name = _("City District")
+        verbose_name_plural = _("City Districts")
+
+    def __str__(self):
+        return f"{self.name}"
