@@ -169,6 +169,13 @@ class Event(models.Model):
         verbose_name=_("Featured Event"),
         help_text=_("Indicates whether this event is featured.")
     )
+    logo = models.ImageField(
+        upload_to='event_logos/',  # Directory in MEDIA_ROOT where files will be stored
+        blank=True,
+        null=True,
+        verbose_name=_("Event Logo"),
+        help_text=_("Upload a logo for the event.")
+    )
 
     tags = TaggableManager(
         blank=True,
