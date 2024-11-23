@@ -1,4 +1,9 @@
-from rest_framework import viewsets
+# 3rd party imports
+from rest_framework import viewsets, filters
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+# local imports
 from .models import Event, EventType, Category, AgeGroup
 from .serializers import EventSerializer, EventTypeSerializer, CategorySerializer, AgeGroupSerializer
 
@@ -29,3 +34,5 @@ class EventViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name', 'description']  # Specify searchable fields
