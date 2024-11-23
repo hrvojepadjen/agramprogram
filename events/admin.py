@@ -24,6 +24,7 @@ class AgeGroupAdmin(admin.ModelAdmin):
 class EventAdmin(admin.ModelAdmin):
     list_display = (
         "name",
+        "city_district",
         "event_type",
         "organizer",
         "location",
@@ -38,5 +39,5 @@ class EventAdmin(admin.ModelAdmin):
         "target_age_groups",
         "registration_required"
     )
-    search_fields = ("name", "description", "location")
+    search_fields = ("name", "description", "location", "organizer__name")
     filter_horizontal = ("categories", "target_age_groups")
