@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Organizer, OrganizerType
+from .models import Organizer, OrganizerType, CityDistrict
 
 
 class OrganizerTypeSerializer(serializers.ModelSerializer):
@@ -22,3 +22,8 @@ class OrganizerSerializer(serializers.ModelSerializer):
             'wheelchair_accessible_entry', 'wheelchair_accessible_wc',
             'logo_url', 'user'
         ]
+
+class CityDistrictSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CityDistrict
+        fields = ['id', 'name']  # Include relevant fields
