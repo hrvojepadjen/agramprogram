@@ -48,12 +48,6 @@ class Organizer(models.Model):
         verbose_name=_("Organizer Type"),
         help_text=_("The type of the organizer.")
     )
-    events = models.TextField(
-        null=True,
-        blank=True,
-        verbose_name=_("Events"),
-        help_text=_("Events organized by this organizer.")
-    )
     location = models.CharField(
         max_length=255,
         null=True,
