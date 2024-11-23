@@ -158,3 +158,8 @@ TAGGIT_CASE_INSENSITIVE = True
 if DEBUG:
     import os
     os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+
+
+# media settings
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

@@ -32,6 +32,7 @@ class EventAdmin(admin.ModelAdmin):
         "end_datetime",
         "price",
         "featured",
+        "logo",
     )
     list_filter = (
         "event_type",
