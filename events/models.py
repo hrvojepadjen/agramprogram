@@ -2,6 +2,9 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+# 3rd party imports
+from taggit.managers import TaggableManager
+
 # local imports
 from organizers.models import Organizer
 
@@ -151,6 +154,12 @@ class Event(models.Model):
         auto_now=True,
         verbose_name=_("Updated At"),
         help_text=_("The timestamp when the event was last updated.")
+    )
+
+    tags = TaggableManager(
+        blank=True,
+        verbose_name=_('Tags'),
+        help_text=_('A comma-separated list of tags'),
     )
 
     class Meta:
