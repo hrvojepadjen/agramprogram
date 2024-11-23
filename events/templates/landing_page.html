@@ -38,18 +38,28 @@
         <div class="container py-5">
             <h1 class="text-center">{% trans "Our Events" %}</h1>
             <!-- Search Form -->
-            <form method="get" action="" class="d-flex justify-content-center mb-4">
-                <input
-                    type="text"
-                    name="q"
-                    class="form-control w-50"
-                    placeholder="{% trans 'Search events...' %}"
-                    value="{{ query|default:'' }}"
-                >
-                <button type="submit" class="btn btn-primary ms-2">{% trans 'Search' %}</button>
+            <form method="get" class="mb-4">
+                <div class="row">
+                    <!-- Search Bar -->
+                    <div class="col-md-6 mb-3">
+                        <input
+                            type="text"
+                            name="q"
+                            class="form-control"
+                            placeholder="{% trans 'Search events...' %}"
+                            value="{{ query|default:'' }}"
+                        >
+                    </div>
+                    <!-- Filter Form -->
+                    <div class="col-md-6 mb-3">
+                        {{ filter.form.as_p }}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">{% trans 'Filter' %}</button>
+                <a href="/" class="btn btn-primary">{% trans 'Clear all' %}</a>
             </form>
             <div class="row mt-4">
-                {% for event in events %}
+                {% for event in filter.qs %}
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 shadow-sm">
                         <img src="https://placehold.co/600x400" class="card-img-top" alt="{% trans 'Event Logo' %}">
@@ -59,6 +69,8 @@
                         </div>
                         <div class="card-footer">
                             <small class="text-muted">
+                                {% trans "Organizer" %}: {{ event.organizer }}<br>
+                                {% trans "Tickets available" %}:  {{ event.tickets_available }}<br>
                                 {% trans "Starts" %}: {{ event.start_datetime|date:"F j, Y, g:i a" }}<br>
                                 {% trans "Ends" %}: {{ event.end_datetime|date:"F j, Y, g:i a" }}
                             </small>
