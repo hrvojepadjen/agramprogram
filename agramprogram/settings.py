@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'taggit',
     'django_filters',
     'rest_framework',
+    'django_extensions',
 
     # local
     'events',
@@ -152,3 +153,8 @@ REST_FRAMEWORK = {
 
 # taggit settings
 TAGGIT_CASE_INSENSITIVE = True
+
+# for django jupyter
+if DEBUG:
+    import os
+    os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
