@@ -31,5 +31,5 @@ class EventSerializer(TaggitSerializer, serializers.ModelSerializer):
             'categories', 'organizer', 'location', 'start_datetime',
             'end_datetime', 'target_age_groups', 'price', 'tickets_available',
             'registration_required', 'registration_deadline', 'created_at',
-            'updated_at', 'tags'
+            'updated_at', 'tags', 'featured'
         ]
