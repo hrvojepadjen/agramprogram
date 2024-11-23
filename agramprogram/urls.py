@@ -26,7 +26,10 @@ urlpatterns = [
     # Events app with namespace
     path('', include(('events.urls', 'events'), namespace='events')),
     path('api-auth/', include('rest_framework.urls')),
-    path('api/', include('organizers.api_urls')),
+    path('api/', include([
+        path('events/', include('events.api_urls')),  # Events API
+        path('organizers/', include('organizers.api_urls')),  # Organizers API
+    ])),
 ]
 
 # Serve static and media files during development
