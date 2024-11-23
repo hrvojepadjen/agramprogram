@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import OrganizerType, Organizer
+from .models import OrganizerType, Organizer, CityDistrict
 
 
 @admin.register(OrganizerType)
@@ -24,3 +24,9 @@ class OrganizerAdmin(admin.ModelAdmin):
 
     def tag_list(self, obj):
         return u", ".join(o.name for o in obj.tags.all())
+
+
+@admin.register(CityDistrict)
+class CityDistrictAdmin(admin.ModelAdmin):
+    list_display = ("name", )
+    search_fields = ("name", )
