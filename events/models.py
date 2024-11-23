@@ -164,6 +164,11 @@ class Event(models.Model):
         verbose_name=_("Updated At"),
         help_text=_("The timestamp when the event was last updated.")
     )
+    featured = models.BooleanField(
+        default=False,
+        verbose_name=_("Featured Event"),
+        help_text=_("Indicates whether this event is featured.")
+    )
 
     tags = TaggableManager(
         blank=True,
