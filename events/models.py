@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from taggit.managers import TaggableManager
 
 # local imports
-from organizers.models import Organizer
+from organizers.models import Organizer, CityDistrict
 
 
 class EventType(models.Model):
@@ -70,6 +70,14 @@ class Event(models.Model):
     name = models.TextField(
         verbose_name=_("Event Name"),
         help_text=_("The name of the event.")
+    )
+    city_district = models.ForeignKey(
+        CityDistrict,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        verbose_name=_("City District"),
+        help_text=_("The district where the event is taking place.")
     )
     description = models.TextField(
         verbose_name=_("Description"),
