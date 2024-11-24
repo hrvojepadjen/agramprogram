@@ -130,10 +130,12 @@ class EventViewSet(viewsets.ReadOnlyModelViewSet):
                     )
 
         # kvart
-        district_id = self.request.query_params.get('district')
+        district_list = [
+            int(district_id) for district_id in self.request.GET.getlist('district')
+        ]
 
-        if district_id is not None:
-            queryset = queryset.filter(city_district__id=district_id)
+        if district_list:
+            queryset = queryset.filter(city_district__id__in=district_list)
 
         # vrsta događanja
         event_type_id = self.request.query_params.get('event_type')
